@@ -4,7 +4,6 @@ public class UserBean {
 	
 	private Long id;
 	
-
 	private String name;
 	private String surname;
 	private int year;
