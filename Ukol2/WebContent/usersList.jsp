@@ -9,6 +9,13 @@
 <title>Seznam uživatelů</title>
 </head>
 <body>
+        <%
+            if(request.getAttribute("back") != null) {
+                response.sendRedirect("index.jsp");
+            }
+        %>    
+    
+    
 	<h1>Seznam registrovaných uživatelů</h1>
         <table border="1"><tr><th>Id</th><th>Jméno</th><th>Příjmení</th><th>Rok narození</th></tr>
 	<%
@@ -40,7 +47,7 @@
 		}
 	%>
         </table>
-        <form action="/jav-ukol2" method="post">
+        <form action="" method="post">
             <input type="submit" name="back" value="Zpět"/>
         </form>
 </body>
