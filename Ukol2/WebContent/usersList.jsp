@@ -10,7 +10,7 @@
 </head>
 <body>
         <%
-            if(request.getAttribute("back") != null) {
+            if(request.getParameter("back") != null) {
                 response.sendRedirect("index.jsp");
             }
         %>    
