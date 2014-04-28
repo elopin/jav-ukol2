@@ -1,3 +1,6 @@
+<%--
+    JSP stránka pro zachytávání výjimek.
+--%>
 <%@page isErrorPage="true" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,6 @@
 <%-- 
-    Document   : userForm
-    Created on : 24.4.2014, 22:13:20
-    Author     : elopin
+    Univerzální formulář pro zadání údajů uživatele. Použití při
+    registraci nebo editaci.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,6 +19,7 @@
         String surname = "";
         String year = "";
         
+        //nastavení stránky při editaci
         if(user.getId() != null) {
             id = String.valueOf(user.getId());
             name = user.getName();

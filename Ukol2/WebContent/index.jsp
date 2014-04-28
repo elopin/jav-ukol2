@@ -1,3 +1,7 @@
+<%--
+    JSP stránka pro registraci uživatele.
+ --%>
+
 <%@page import="ukol2.connection.DataRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

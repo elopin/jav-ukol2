@@ -17,19 +17,30 @@ import java.util.logging.Logger;
 import ukol2.beans.UserBean;
 
 /**
- *
- * @author elopin
+ * Třída reprezentující vrstvu pro přístup k databázi pomocí 
+ * předem připravených SQL dotazů.
+ * 
+ * @author Lukáš Janáček
  */
 public class DataRepository {
     
     private ConnectionProvider connection;
     private Statement statement;
     
+    private final String ID = "id";
+    private final String NAME = "name";
+    private final String SURNAME = "surname";
+    private final String YEAR = "year";
+    
     private PreparedStatement addUser;
     private PreparedStatement deleteUser;
     private PreparedStatement getUserById;
     private PreparedStatement updateUser;
     
+    /**
+     * Vytvoří třídu pro práci s daty v databázi pomocí přípravených
+     * SQL dotazů.
+     */
     public DataRepository() {
         this.connection = new ConnectionProvider();
         
@@ -44,6 +55,10 @@ public class DataRepository {
         }
     }
     
+    /**
+     * Přidá nového uživatele.
+     * @param user 
+     */
     public void addUser(UserBean user) {
         if(user != null) {
             try {
@@ -57,16 +72,20 @@ public class DataRepository {
         }
     }
     
+    /**
+     * Vrátí všechny uložené uživatele.
+     * @return 
+     */
     public List<UserBean> getUsers() {
         List<UserBean> users = null;
         try {
             ResultSet result = statement.executeQuery("SELECT id, name, surname, year FROM janacek_ukol3_user");
             while(result.next()) {
                 UserBean user = new UserBean();
-                user.setId(result.getLong("id"));
-                user.setName(result.getString("name"));
-                user.setSurname(result.getString("surname"));
-                user.setYear(result.getInt("year"));
+                user.setId(result.getLong(ID));
+                user.setName(result.getString(NAME));
+                user.setSurname(result.getString(SURNAME));
+                user.setYear(result.getInt(YEAR));
                 
                 if(users == null ){
                     users = new ArrayList<>();
@@ -81,6 +100,10 @@ public class DataRepository {
         return users;
     }
     
+    /**
+     * Odstraní uživatele podle id.
+     * @param id 
+     */
     public void deleteUser(Long id) {
         if(id != null) {
             try {
@@ -92,6 +115,11 @@ public class DataRepository {
         }
     }
     
+    /**
+     * Vyhledá a vrátí uživatele podle id.
+     * @param id
+     * @return 
+     */
     public UserBean getUserById(Long id) {
         UserBean user = null;
         if(id != null) {
@@ -100,10 +128,10 @@ public class DataRepository {
                 ResultSet result = getUserById.executeQuery();
                 if(result.next()) {
                     user = new UserBean();
-                    user.setId(result.getLong("id"));
-                    user.setName(result.getString("name"));
-                    user.setSurname(result.getString("surname"));
-                    user.setYear(result.getInt("year"));
+                    user.setId(result.getLong(ID));
+                    user.setName(result.getString(NAME));
+                    user.setSurname(result.getString(SURNAME));
+                    user.setYear(result.getInt(YEAR));
                 }
                 
             } catch (SQLException ex) {
@@ -113,6 +141,10 @@ public class DataRepository {
         return user;
     }
     
+    /**
+     * Aktualizuje data uzivatele.
+     * @param user 
+     */
     public void updateUser(UserBean user) {
         if(user != null) {
             try {

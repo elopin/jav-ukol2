@@ -13,24 +13,32 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author elopin
+ * Třída zajišťující spojení s databází.
+ * 
+ * @author Lukáš Janáček
  */
 public class ConnectionProvider {
-    private static String dbUrl = "jdbc:mysql://project.iivos.cz:9906/iivos3Dalfa?characterEncoding=utf8";
-        
+    private final String DRIVER = "com.mysql.jdbc.Driver";
+    private final String dbUrl = "jdbc:mysql://project.iivos.cz:9906/iivos3Dalfa?characterEncoding=utf8";
+    private final String LOGIN = "janacek";
+    private final String PASSWORD = "Lukas.Janacek";
+    
     private static Connection connection;
     
     public ConnectionProvider() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(dbUrl,"janacek", "Lukas.Janacek");
+            Class.forName(DRIVER);
+            connection = DriverManager.getConnection(dbUrl,LOGIN, PASSWORD);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ConnectionProvider.class.getName()).log(Level.SEVERE, null, ex);
         } 
                 
     }
     
+    /**
+     * Vrací spojení do databáze.
+     * @return 
+     */
     public Connection getConnection() {
         return connection;
     }

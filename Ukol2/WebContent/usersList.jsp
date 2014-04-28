@@ -1,3 +1,7 @@
+<%--
+    JSP stránka se seznamem registrovaných uživatelů.
+--%>
+
 <%@page import="ukol2.beans.UserBean"%>
 <%@page import="ukol2.connection.DataRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -24,7 +28,13 @@
             
             String edit = request.getParameter("edit");
             if( edit != null) {
-                response.sendRedirect("editUser.jsp?edit="+edit);
+                
+                 UserBean repUser = repository.getUserById(Long.parseLong(edit));
+                    
+                if(repUser != null) {
+                    session.setAttribute("editUser", repUser);
+                    response.sendRedirect("editUser.jsp");
+                } 
             }
         %>    
     
