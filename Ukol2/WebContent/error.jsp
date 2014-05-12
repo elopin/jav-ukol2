@@ -9,7 +9,7 @@
         <title>Chyba registrace</title>
     </head>
     <body>
-        <h1>Chyba při registraci uživatele.</h1>
+        <h1>Chyba při vyplnění registračních údajů uživatele.</h1>
         Zpráva:
         <%=exception.getMessage() %>
     </body>

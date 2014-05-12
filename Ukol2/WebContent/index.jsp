@@ -5,7 +5,7 @@
 <%@page import="ukol2.connection.DataRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="user" scope="page" class="ukol2.beans.UserBean"/>
+<jsp:useBean id="user" scope="request" class="ukol2.beans.UserBean"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,17 +20,32 @@
                     response.sendRedirect("usersList.jsp");
                 }
            
-            
-		if (request.getParameter("id") != null) {	
-	%>
+		if (request.getParameter("id") != null) {
+                    
+        %>
 		    <jsp:setProperty name="user" property="*"/>
-	 <%
+	<%
+                    
+                    String name = request.getParameter("name");
+                    String surname = request.getParameter("surname");
+                    String year = request.getParameter("year");
+                    if(name == null || name.equals("")) {
+                        %><label style="color: red">Vyplňte jméno!</label><%
+                    }
+                    
+                    else if(surname == null || surname.equals("")) {
+                        %><label style="color: red">Vyplňte příjmení!</label><%
+                    }
+                    
+                    else if(year == null || year.equals("")) {
+                        %><label style="color: red">Vyplňte rok narození!</label><%
+                    } else {
+                   
 	 		DataRepository repository = new DataRepository();
 	 		repository.addUser(user);
 	 		response.sendRedirect("usersList.jsp");
-	 	}
-	
-		
+                    }    
+	 	}	
 	 %>
 
          <jsp:include page="userForm.jsp"/>

@@ -22,13 +22,17 @@
         //nastavení stránky při editaci
         if(user.getId() != null) {
             id = String.valueOf(user.getId());
-            name = user.getName();
-            surname = user.getSurname();
-            year = String.valueOf(user.getYear());
-            
-            %> <h2>Editace uživatele</h2> <%
         }
-        
+        if(user.getName() != null) {
+            name = user.getName();
+        }
+        if(user.getSurname() != null) {
+            surname = user.getSurname();
+        }
+        if(user.getYear() > 0) {
+            year = String.valueOf(user.getYear());
+        }    
+            
         %>
         
         <form action="" method="post">
