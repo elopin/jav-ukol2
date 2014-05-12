@@ -1,4 +1,4 @@
-package ukol2.filters;
+package ukol3.filters;
 
 import java.io.IOException;
 

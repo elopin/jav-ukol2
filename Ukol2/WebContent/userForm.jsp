@@ -4,7 +4,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="user" scope="request" class="ukol2.beans.UserBean"/>
+<jsp:useBean id="user" scope="request" class="ukol3.beans.UserBean"/>
 <!DOCTYPE html>
 <html>
     <head>

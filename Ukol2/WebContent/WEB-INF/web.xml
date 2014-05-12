@@ -3,7 +3,7 @@
     <display-name>Ukol2</display-name>
     <filter>
         <filter-name>encoding</filter-name>
-        <filter-class>ukol2.filters.EncodingFilter</filter-class>
+        <filter-class>ukol3.filters.EncodingFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>encoding</filter-name>

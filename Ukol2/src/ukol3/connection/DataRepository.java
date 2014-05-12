@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ukol2.connection;
+package ukol3.connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ukol2.beans.UserBean;
+import ukol3.beans.UserBean;
 
 /**
  * Třída reprezentující vrstvu pro přístup k databázi pomocí 

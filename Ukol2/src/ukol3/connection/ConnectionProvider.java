@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ukol2.connection;
+package ukol3.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

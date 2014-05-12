@@ -1,4 +1,4 @@
-package ukol2.beans;
+package ukol3.beans;
 
 public class UserBean {
 	

@@ -2,10 +2,10 @@
     JSP stránka pro editaci uživatele.
 --%>
 
-<%@page import="ukol2.beans.UserBean"%>
-<%@page import="ukol2.connection.DataRepository"%>
+<%@page import="ukol3.beans.UserBean"%>
+<%@page import="ukol3.connection.DataRepository"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="user" scope="request" class="ukol2.beans.UserBean"/>
+<jsp:useBean id="user" scope="request" class="ukol3.beans.UserBean"/>
 <!DOCTYPE html>
 <html>
     <head>
